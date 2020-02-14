@@ -581,7 +581,7 @@ EOD
                 $detectedDeps[$row["name"]] = $row;
             }
             foreach($detectedDeps as $name => $data) {
-                if($data === true) $this->errorBadRequest("The plugin requires the dependency \"$name\", but it does not exist");
+                if($data === true) $this->exitNotFound("The plugin requires the dependency \"$name\", but it does not exist on poggit.");
                 if($data === false) unset($detectedDeps[$name]);
             }
         }
